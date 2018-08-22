@@ -1,0 +1,11 @@
+# Python local environment
+venv/
+
+# Python bytecode files
+*.pyc
+
+# Local database file
+db.sqlite3
+
+# Local vscode settings
+.vscode/
