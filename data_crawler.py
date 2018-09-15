@@ -38,7 +38,7 @@ FIRST_FIVE_CHARS = 5
 CODE = 'codigo'
 MONGO_URI = 'mongodb+srv://{}:{}@bigpy-azwev.mongodb.net/test?retryWrites=true'
 MONGO_DB = 'bigpy'
-MONGO_COLLECTION = 'company_reports'
+MONGO_COLLECTION = 'bigpy_companyreports'
 AGE_LESS_20 = 'até 20 anos'
 AGE_BTW_21_AND_30 = 'entre 21 e 30'
 AGE_BTW_31_AND_40 = 'entre 31 e 40'
