@@ -27,6 +27,7 @@ import json
 from urllib.request import urlopen
 import pandas as pd
 import pymongo
+from datetime import datetime, tzinfo
 
 
 # JSON endpoint where the list of file codes are stored.
@@ -198,12 +199,18 @@ def main():
         )
 
         parsed_documents = dataframe.to_json(
-            orient='records', force_ascii=False, double_precision=0)
+            orient='records',
+            force_ascii=False,
+            double_precision=0,
+            date_format='iso'
+        )
 
         parsed_documents = json.loads(parsed_documents)
 
         documents = list()
         for single_document in parsed_documents:
+            single_document['conclusion_date'] = datetime.strptime(
+                single_document['conclusion_date'], "%Y-%m-%dT%H:%M:%S.%fZ")
             documents.append(single_document)
 
         # Save all documents to MongoDB
@@ -211,6 +218,8 @@ def main():
         db = client[MONGO_DB]
         db[MONGO_COLLECTION].insert_many(documents)
         client.close()
+
+    return True
 
 
 if __name__ == '__main__':
