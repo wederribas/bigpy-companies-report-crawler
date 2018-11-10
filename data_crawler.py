@@ -41,11 +41,11 @@ MONGO_URI = 'mongodb+srv://{}:{}@bigpy-azwev.mongodb.net/test?retryWrites=true'
 MONGO_DB = 'bigpy'
 MONGO_COLLECTION = 'bigpy_companyreports'
 AGE_LESS_20 = 'até 20 anos'
-AGE_BTW_21_AND_30 = 'entre 21 e 30'
-AGE_BTW_31_AND_40 = 'entre 31 e 40'
-AGE_BTW_41_AND_50 = 'entre 41 e 50'
-AGE_BTW_51_AND_60 = 'entre 51 e 60'
-AGE_BTW_61_AND_70 = 'entre 61 e 70'
+AGE_BTW_21_AND_30 = 'entre 21 a 30 anos'
+AGE_BTW_31_AND_40 = 'entre 31 a 40 anos'
+AGE_BTW_41_AND_50 = 'entre 41 a 50 anos'
+AGE_BTW_51_AND_60 = 'entre 51 a 60 anos'
+AGE_BTW_61_AND_70 = 'entre 61 a 70 anos'
 
 
 def get_file_codes(url):
@@ -132,19 +132,19 @@ def get_age_average(age_range):
     """
 
     if age_range == AGE_LESS_20:
-        return 20
+        return '0-20'
     elif age_range == AGE_BTW_21_AND_30:
-        return 26
+        return '21-30'
     elif age_range == AGE_BTW_31_AND_40:
-        return 36
+        return '31-40'
     elif age_range == AGE_BTW_41_AND_50:
-        return 46
+        return '41-50'
     elif age_range == AGE_BTW_51_AND_60:
-        return 56
+        return '51-60'
     elif age_range == AGE_BTW_61_AND_70:
-        return 66
+        return '61-70'
     else:
-        return 70
+        return '71-*'
 
 
 def main():
